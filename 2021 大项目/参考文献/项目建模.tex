@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{comment}
+%\include{macros}
+%\usepackage{floatflt}
+%\usepackage{graphics}
+%\usepackage{epsfig}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defition}{Definition}
+\newtheorem*{example}{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{exercise}{Exercise}
+
+\setlength{\oddsidemargin}{-0.25 in}
+\setlength{\evensidemargin}{-0.25 in} \setlength{\topmargin}{-0.25
+in} \setlength{\textwidth}{7 in} \setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.25 in} \setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+\newcommand{\homework}[5]{
+\pagestyle{myheadings} \thispagestyle{plain}
+\newpage
+\setcounter{page}{1} \setcounter{section}{#5} \noindent
+\begin{center}
+\framebox{ \vbox{\vspace{2mm} \hbox to 6.28in { {\bf
+Harvest~Fund~Project \hfill Version: 01} }
+\vspace{6mm} \hbox to 6.28in { {\Large \hfill #1 \hfill} }
+\vspace{6mm} \hbox to 6.28in { {\it Lecturer: #2 \hfill} }
+\vspace{2mm} \hbox to 6.28in { {\it \hspace{13mm} #3 \hfill} }
+\vspace{2mm} \hbox to 6.28in { {\it Student: #4 \hfill} }
+\vspace{2mm} } }
+\end{center}
+\markboth{#1}{#1} \vspace*{4mm} }
+
+
+\begin{document}
+
+\homework{Alternative Energy Industry Chain Modelling}
+{Junan Zhu \hspace{5mm} {\tt \quad jazhu@jsfund.cn}}
+{}
+{Zhenyu Jin \hspace{11mm} {\tt jzy20@mails.tsinghua.edu.cn}}{8}
+
+\section*{Micro-Model Building}
+\begin{itemize}
+\item Notation:
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Variable & Defination & Acquire Method\\
+		\hline
+		$c$ & The overall cost of mine from the upstream industry chain. & \\
+		$K$ & The product capacity of fab planning. & \\
+		$p(K)$ & The price and demand function(usually linear) &\\
+		$D$ & Market demand, consists of two part $\overline{D}$ and $\tilde{D}$ &\\
+		$\overline{D}$ & The stable demand in the market. & \\
+		$\tilde{D}$ & The trendancy symbol of demand moving. &\\
+		$h$ & Reputation loss since the lack of supplying. &\\
+		$s$ & Reserving value of oversupply inventory. & \\
+		\hline
+	\end{tabular}
+\end{table}
+\item Consider the three-node supply chain for one industry, especially new-energy lottery industry.
+\begin{equation*}
+\begin{aligned}
+	&\prod_{mid} = p\cdot min(D,K)-h(D-K)^{+} + s(K-D)^{+} -cK \\
+	&\prod_{mid} = \int_0^K [p(D)\cdot D+s(K-D)]\cdot f(D)\,dD +\int_K^{\infty} [p(K)\cdot K-h(D-K)]\cdot f(D)dD-cK
+\end{aligned}
+\end{equation*}
+\item Let the first order of the former equation to 0, thus can obtain that,
+\begin{equation*}
+\begin{aligned}
+	\frac{\partial}{\partial K} \prod_{mid} &= [p(K)\cdot K -sK]\cdot f(K)+sF(K)+SK\cdot f(k)-p(K)K\cdot f(K) \\
+		&+[p^{'}(K)\cdot K+p(K)]\cdot \overline{F(K)}+hK\cdot f(K)+h\overline{F(K)}-hK\cdot f(K)-c \\
+		&=[p^{'}(K)\cdot K+p(K)]\cdot \overline{F(K)}+h\overline{F(K)}+sF(K)-c \\
+		&=0
+\end{aligned}
+\end{equation*}
+\item If the price function $p(D)$ maintain stable when the product has rigid market demand, the equation can be simplified to:
+\begin{equation*}
+\begin{aligned}
+	& p\overline{F(K)}+h\overline{F(K)}+sF(K)=c \\
+	& F_D(K)=\frac{p+h-c}{p+h-s} \\
+	& K=F_D^{-1}(\frac{p+h-c}{p+h-s})
+\end{aligned}
+\end{equation*}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
